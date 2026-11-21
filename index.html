@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Thoughtful wedding planning and styling, tailored to you.">
+<title>Hannah Brolly Wedding Planning Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--blush:#ead0c7;--blush-light:#f5e9e4;--slate:#7e929b;--ink:#3f4a4d;--cream:#fbf8f5;--white:#fff;--line:rgba(78,94,98,.45)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:"DM Sans",sans-serif}
+a{color:inherit;text-decoration:none}
+button,input,textarea{font:inherit}
+.topbar{height:60px;padding:0 6vw;display:flex;align-items:center;justify-content:space-between;background:rgba(251,248,245,.94);position:sticky;top:0;left:0;right:0;z-index:5;border-bottom:1px solid rgba(255,255,255,.45)}
+.logo{display: inline-block;}
+.logo img {display: block; max-width: 240px; height: 66px;}
+.nav{display:flex;align-items:center;gap:30px;font-size:11px;letter-spacing:.13em;text-transform:uppercase}
+.nav a{transition:opacity .2s}.nav a:hover{opacity:.55}
+.nav .nav-cta{border:1px solid var(--line);padding:13px 18px}
+.menu{display:none;background:none;border:0;font-size:24px;color:var(--ink)}
+.hero {
+    min-height: 660px;
+    height: min(790px,100vh);
+    display: grid;
+    grid-template-columns: 46% 54%;
+    padding-top: 0;
+}
+.hero-copy{background:var(--blush);display:flex;align-items:center;justify-content:center;padding:65px 9%}
+.copy-inner{max-width:420px;width:100%;margin-left:4%}
+.eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:.22em;color:#647a80;margin-bottom:23px}
+h1,h2,h3{font-family:"Cormorant Garamond",serif;font-weight:400}
+h1{font-size:clamp(45px,5vw,76px);line-height:.98;letter-spacing:.045em;text-transform:uppercase;margin:0 0 24px;color:#71848b}
+.hero-sub{font-family:"Cormorant Garamond",serif;font-size:22px;font-style:italic;color:#68777b;line-height:1.35;margin:0 0 43px}
+.outline-btn{display:inline-flex;justify-content:center;align-items:center;min-width:190px;padding:13px 24px;border:1px solid #8da0a5;color:#667980;text-transform:uppercase;letter-spacing:.12em;font-size:10px;transition:background .25s,color .25s}
+.outline-btn:hover{background:#7e929b;color:white}
+.hero-photo{position:relative;min-height:500px;overflow:hidden;background:#8c8d79}
+.hero-photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;object-position:center}
+.photo-note{position:absolute;right:28px;bottom:25px;color:#fff;font-size:9px;letter-spacing:.2em;text-transform:uppercase;text-shadow:0 1px 8px #333}
+.intro{padding:110px 7vw 115px;text-align:center;max-width:1050px;margin:auto}
+.section-kicker{text-transform:uppercase;letter-spacing:.22em;font-size:10px;color:#84969b}
+h2{font-size:clamp(37px,4vw,56px);line-height:1.05;color:#788b91;margin:18px 0}
+.intro p{max-width:620px;margin:0 auto 30px;line-height:1.9;font-size:13px;color:#697477}
+.services{display:grid;grid-template-columns:repeat(3,1fr);background:#e8d0c7}
+.service{min-height:560px;position:relative;overflow:hidden;display:flex;flex-direction:column;padding:0;color:white}
+.service-toggle{flex:0 0 400px}
+.service-details{flex:0 0 auto}
+.service-toggle{position:relative;display:flex;align-items:flex-end;text-align:left;width:100%;min-height:400px;padding:35px;border:0;background:transparent;color:white;cursor:pointer}
+.service-toggle:focus-visible{outline:3px solid #fff;outline-offset:-7px}
+.service-toggle:before{content:"";position:absolute;inset:0;z-index:1}
+.service-toggle img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s}
+.service-toggle .service-content{position:relative;z-index:2}
+.service-toggle h3{font-size:36px;margin:0 0 12px}
+.service-action{display:inline-block;font-family:"DM Sans",sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;border-bottom:1px solid rgba(255,255,255,.85);padding-bottom:6px}
+.service-toggle[aria-expanded="true"] .service-action{border-bottom-style:dashed}
+.service-details{box-sizing:border-box;padding:24px 28px;background:#e8d0c7;color:var(--ink);line-height:1.8;font-size:12px;overflow:visible;min-height:0;height:auto}
+.service-details p{margin:0 0 15px}
+.service-details a{font-size:10px;letter-spacing:.12em;text-transform:uppercase;border-bottom:1px solid var(--line);padding-bottom:4px}
+.service-details[hidden]{display:none}
+.service:before{content:"";position:absolute;inset:0;z-index:1}
+.service img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s;filter: brightness(75%);}
+.quote{padding:100px 20px;background:#f7f5f2;text-align:center}
+.quote blockquote{font-family:"Cormorant Garamond",serif;font-size:clamp(27px,3.5vw,43px);font-style:italic;line-height:1.25;max-width:800px;margin:20px auto;color:#71848b}
+.quote .byline{font-size:9px;letter-spacing:.2em;text-transform:uppercase}
+.contact{display:grid;grid-template-columns:1fr 1fr;min-height:500px}
+.contact-image{min-height:400px;position:relative;overflow:hidden}
+.contact-image img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.contact-copy{padding:75px clamp(30px,7vw,100px);display:flex;flex-direction:column;justify-content:center;background:#f7f0ec}
+.contact-copy p{font-size:12px;line-height:1.8;color:#6b7779;max-width:410px}
+form{display:grid;gap:12px;margin-top:15px}
+input,textarea{width:100%;padding:13px 12px;border:1px solid #c6cfce;background:transparent;color:var(--ink);font-size:12px;outline:none}
+input:focus,textarea:focus{border-color:#71878d}
+textarea{min-height:95px;resize:vertical}
+form button{background:#7e929b;color:white;border:0;padding:15px;text-transform:uppercase;font-size:10px;letter-spacing:.17em;cursor:pointer}
+#form-status{font-size:12px;min-height:18px;color:#536e70}
+footer{padding:28px 6vw;display:flex;align-items:center;justify-content:space-between;gap:20px;font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:#718086}
+.socials{display:flex;gap:18px}
+@media(max-width:760px){
+ .topbar{height:66px;padding:0 6vw}.menu{display:block}.nav{display:none;position:absolute;top:66px;left:0;right:0;background:var(--cream);padding:24px 7vw 30px;flex-direction:column;align-items:flex-start;gap:22px;border-bottom:1px solid #ddd}.nav.open{display:flex}
+ .hero{height:auto;min-height:0;grid-template-columns:1fr;padding-top:0}
+ .hero-copy{min-height:450px;padding:60px 10%}.copy-inner{margin:0}.hero-photo{min-height:380px;height:58vh}
+ .services{grid-template-columns:1fr}.service{height:auto;min-height:0}.service-toggle{flex-basis:370px;min-height:370px}.service-details{min-height:0}.intro{padding:78px 8%}.contact{grid-template-columns:1fr}.contact-image{min-height:330px}.contact-copy{padding:65px 8%}
+ footer{flex-direction:column;text-align:center;padding:28px 8%}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+
+.collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #555;
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+#service-details-1[hidden] {
+  display: none;
+}
+</style>
+</head>
+
+<body>
+<header class="topbar">
+  <a class="logo" href="#home" aria-label="Hannah Brolly home"> <img src="Test-removebg-4.png" alt="Hannah Brolly" /> </a>
+  <button class="menu" id="menu" aria-label="Open navigation" aria-expanded="false">☰</button>
+  <nav class="nav" id="nav">
+    <a href="#about">About me</a><a href="#services">Services</a><a href="#stories">Kind words</a><a class="nav-cta" href="#contact">Let's talk</a>
+  </nav>
+</header>
+<main>
+<section class="hero" id="home">
+  <div class="hero-copy"><div class="copy-inner">
+    <div class="eyebrow">A thoughtful approach to your day</div>
+    <h1>Hannah<br>Brolly</h1>
+    <p class="hero-sub">Wedding Planning Services</p>
+    <a class="outline-btn" href="#about">Read more</a>
+  </div></div>
+  <div class="hero-photo">
+    <img src="hb-index.png" alt="Elegant wedding rings and romantic wedding details">
+   </div>
+</section>
+
+<section class="intro" id="about">
+  <span class="section-kicker">A day that feels like you</span>
+  <h2>About me</h2>
+  <p>I’m Hannah Brolly, the face behind Hannah Brolly Weddings. I chose to explore this industry as I have a passion for organising and planning. With a Type-A personality I felt like I found my niche in helping couples pull together their dream wedding without stress and fuss.
+  </p>
+  <p>With a creative personality, my strengths lie within the details, minuet and major. I love to deep dive into the finer details and find the sentimentality that makes each wedding unique. With my own wedding, I found this part so enjoyable as I felt like a story was being told throughout the day. I want to help all my couples experience their story on their big day and look back with memories to remember forever.
+  </p>
+  <h2>"Step Under The Brolly"</h2>
+  <p>I want to make each couple feel like they are planning their wedding with a friend, that joy and excitement is felt throughout each planning process. My mission is to make this chapter of your life unforgettable.</p>
+
+  <a class="outline-btn" href="#contact">Tell me your plans</a>
+</section>
+
+<section class="services" id="services" aria-label="Wedding services">
+  <article class="service">
+    <button class="service-toggle" type="button" aria-expanded="false" aria-controls="service-details-1">
+      <img src="morningservice.jpeg" alt="" aria-hidden="true">
+      <span class="service-content"><h3>Morning Service</h3><span class="service-action">Show details</span></span>
+    </button>
+    <div class="service-details" id="service-details-1" hidden>
+      <p>I am there to assist you and your bridal party on the morning of the wedding. This includes dress preparation together with making sure all the intricate details are accounted for on the morning. Services included are:</p>
+	  <ul>
+		<li>Dress steaming for bride and bridal party.</li>
+		<li>Dress service for bride and bridal party.</li>
+		<li>Answering any queries / calls that may pop up on the day.</li>
+		<li>Liaising with vendors the morning off.</li>
+		<li>Timeline management.</li>
+		<li>Bridal party coordination.</li>
+	  </ul>  
+    </div>
+  </article>
+  <article class="service">
+    <button class="service-toggle" type="button" aria-expanded="false" aria-controls="service-details-2">
+      <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1000&q=85" alt="" aria-hidden="true">
+      <span class="service-content"><h3>Partial Wedding Co-Ordination</h3><span class="service-action">Show details</span></span>
+    </button>
+    <div class="service-details" id="service-details-2" hidden>
+      <p>4–6 weeks out from your wedding, I take over the remaining planning process to allow you and your partner to relax and fully enjoy the lead-up to the wedding.</p>
+      <ul>
+		<li>Handover of all final details.</li>
+		<li>Communicating with suppliers.</li>
+		<li>Confirming final details with suppliers.</li>
+		<li>Full wedding day management.</li>
+		<li>Morning service included.</li>
+	  </ul>
+	 </div>
+  </article>
+  <article class="service">
+    <button class="service-toggle" type="button" aria-expanded="false" aria-controls="service-details-3">
+      <img src="fullweddingplanning.jpeg" alt="" aria-hidden="true">
+      <span class="service-content"><h3>Full Planning Service</h3><span class="service-action">Show details</span></span>
+    </button>
+    <div class="service-details" id="service-details-3" hidden>
+      <p>You have just got engaged and do not know where to start? Well, step under the Brolly. I will be there throughout the whole process to help you plan your dream wedding. This is a bespoke package for each couple.</p>
+      <ul>
+		<li>One on one planning service.</li>
+		<li>Budget management.</li>
+		<li>Ongoing communication with suppliers.</li>
+		<li>Timeline management.</li>
+		<li>Vendor coordination.</li>
+		<li>Venue Coordinator.</li>
+		<li>Morning Service included.</li>
+	  </ul>
+	</div>
+  </article>
+</section>
+<section class="quote" id="stories">
+  <span class="section-kicker">Kind words</span>
+  <blockquote>“Thanks to Hannah's calmness, patience, and understanding, we were able to have peace of mind knowing that everything was organised and managed for our day.”</blockquote>
+  <div class="byline">A note from a the Fitzpatrick's</div>
+</section>
+<section class="contact" id="contact">
+  <div class="contact-image"><img src="steamingweddingcontact.jpeg"></div>
+  <div class="contact-copy">
+    <span class="section-kicker">The beginning of something lovely</span>
+    <h2>Let's make it<br>feel like you.</h2>
+    <p>Tell me a little about the day you’re dreaming of. I’d love to hear what you have in mind.</p>
+    <form action="https://formspree.io/f/mvkzdjyv" method="post" id="contact-form">
+      <label>Your Name</label><input name="Name" placeholder="Your name" aria-label="Your name" required>
+      <label>Email Address</label><input name="Email" type="email" placeholder="Email address" aria-label="Email address" required>
+	  <label>Wedding Date</label><input name="Wedding_Date" type="Date" placeholder="Wedding Date" aria-label="Wedding Date" required>	
+	  <label>Ceremony Venue</label><input name="Ceremony_Venue" placeholder="Cermony Venue" aria-label="Ceremony Venue" required>
+	  <label>Wedding Venue</label><input name="Wedding_Venue" placeholder="Wedding Venue" aria-label="Wedding Venue" required>
+      <label>Question</label><textarea name="Question" placeholder="A little about your plans…" aria-label="A little about your plans" required></textarea>
+      <button type="submit">Send an enquiry</button>
+      <div id="form-status" role="status"></div>
+    </form>
+  </div>
+</section>
+</main>
+<footer><span>© <span id="year"></span> Hannah Brolly Wedding Services</span><div class="socials"><a href="#home">Instagram</a><a href="#contact">Facebook</a></div></footer>
+<script>
+const menu = document.getElementById('menu');
+const nav = document.getElementById('nav');
+menu.addEventListener('click', () => {
+  const open = nav.classList.toggle('open');
+  menu.setAttribute('aria-expanded', String(open));
+  menu.textContent = open ? '×' : '☰';
+});
+nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  nav.classList.remove('open'); menu.setAttribute('aria-expanded','false'); menu.textContent='☰';
+}));
+document.getElementById('year').textContent = new Date().getFullYear();
+
+document.querySelectorAll(".service-toggle").forEach(button => {
+  button.addEventListener("click", () => {
+    const details = document.getElementById(button.getAttribute("aria-controls"));
+    const isExpanded = button.getAttribute("aria-expanded") === "true";
+    button.setAttribute("aria-expanded", String(!isExpanded));
+    details.hidden = isExpanded;
+    button.querySelector(".service-action").textContent = isExpanded ? "Show details" : "Hide details";
+  });
+});
+</script>
+</body>
+</html>
